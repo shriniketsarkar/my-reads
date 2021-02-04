@@ -5,9 +5,9 @@ class BookList extends Component {
   render() {
     const listItems = this.props.books.map(book => (
       <Book
-        imgUrl={book.imgUrl}
+        imgUrl={book.imageLinks.thumbnail}
         title={book.title}
-        author={book.author}
+        authors={book.authors}
       />
     ));
     return (
