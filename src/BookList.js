@@ -8,6 +8,7 @@ class BookList extends Component {
         imgUrl={book.imageLinks.thumbnail}
         title={book.title}
         authors={book.authors}
+        shelf={book.shelf}
       />
     ));
     return (
