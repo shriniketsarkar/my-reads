@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import BookShelf from './BookShelf';
 import * as BooksAPI from './BooksAPI';
 
-class Bookcase extends Component {
-  state = {
-    wantToReadBooks: [],
-    readBooks: [],
-    currentlyReadingBooks: []
-  }
+const Bookcase = () => {
+  const [wantToReadBooks, setWantToReadBooks] = useState([]);
+  const [readBooks, setReadBooks] = useState([]);
+  const [currentlyReadingBooks, setCurrentlyReadingBooks] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     BooksAPI.getAll()
       .then(books => {
         let readBooks = [], currentlyReadingBooks = [], wantToReadBooks = [];
@@ -27,30 +25,30 @@ class Bookcase extends Component {
               wantToReadBooks.push(book);
           }
         });
-        this.setState({readBooks, currentlyReadingBooks, wantToReadBooks});
+        setReadBooks(readBooks);
+        setCurrentlyReadingBooks(currentlyReadingBooks);
+        setWantToReadBooks(wantToReadBooks);
       })
-  }
+  }, []);
 
-  render() {
-    return (
-      <div className="list-books-content">
-        <div>
-          <BookShelf
-            shelfTitle={'Currently Reading'}
-            books={this.state.currentlyReadingBooks}
-          />
-          <BookShelf
-            shelfTitle={'Want to Read'}
-            books={this.state.wantToReadBooks}
-          />
-          <BookShelf
-            shelfTitle={'Read'}
-            books={this.state.readBooks}
-          />
-        </div>
+  return (
+    <div className="list-books-content">
+      <div>
+        <BookShelf
+          shelfTitle={'Currently Reading'}
+          books={currentlyReadingBooks}
+        />
+        <BookShelf
+          shelfTitle={'Want to Read'}
+          books={wantToReadBooks}
+        />
+        <BookShelf
+          shelfTitle={'Read'}
+          books={readBooks}
+        />
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Bookcase;
