@@ -11,8 +11,6 @@ const BookList = (props) => {
         handleBookShelfUpdate={props.handleBookShelfUpdate} 
       />
     ));  
-  } else {
-    console.log(props.books.error);
   }
   
   return (

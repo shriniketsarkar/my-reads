@@ -37,7 +37,10 @@ const Bookcase = () => {
     // Add book to new shelf only if the shelf exists.
     if (newShelf !== 'none') {
       book.shelf = newShelf;
-      let newShelfItems = [...shelves[newShelf]];
+      let newShelfItems = [];
+      if(shelves.hasOwnProperty(newShelf)) {
+        newShelfItems = [...shelves[newShelf]];
+      }
       newShelfItems.push(book);
       newShelves = {
         ...shelves,
@@ -53,7 +56,7 @@ const Bookcase = () => {
     setShelves(newShelves);
   }
 
-  const shelfItems = Object.keys(shelves).map(shelfKey => {
+  const shelfItems = ['currentlyReading', 'wantToRead', 'read'].map(shelfKey => {
     let title = '';
     switch (shelfKey) {
       case 'currentlyReading':
