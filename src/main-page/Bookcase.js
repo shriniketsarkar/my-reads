@@ -26,7 +26,7 @@ const Bookcase = () => {
     BooksAPI.update(book, newShelf)
       .then((res) => {
         if (res?.error) {
-          alert("Book shelf update failed. Please try again.");
+          alert('Book shelf update failed. Please try again.');
         }
       });
 
@@ -38,7 +38,7 @@ const Bookcase = () => {
     if (newShelf !== 'none') {
       book.shelf = newShelf;
       let newShelfItems = [];
-      if(shelves.hasOwnProperty(newShelf)) {
+      if (shelves.hasOwnProperty(newShelf)) {
         newShelfItems = [...shelves[newShelf]];
       }
       newShelfItems.push(book);
@@ -54,7 +54,7 @@ const Bookcase = () => {
       };
     }
     setShelves(newShelves);
-  }
+  };
 
   const shelfItems = ['currentlyReading', 'wantToRead', 'read'].map(shelfKey => {
     let title = '';
@@ -85,7 +85,7 @@ const Bookcase = () => {
         {shelfItems}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Bookcase;

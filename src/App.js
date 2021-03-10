@@ -15,16 +15,16 @@ const BooksApp = () => {
             </div>
             <Bookcase />
             <div className="open-search">
-              <Link to='/search'>
+              <Link to="/search">
                 <button>Add a book</button>
               </Link>
             </div>
           </div>
         )} />
-        <Route path='/search' component={BookSearch} />
+        <Route path="/search" component={BookSearch} />
       </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default BooksApp;

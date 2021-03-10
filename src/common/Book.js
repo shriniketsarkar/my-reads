@@ -18,7 +18,7 @@ const Book = props => {
       <div className="book-title">{props?.bookDetails?.title}</div>
       <div className="book-authors">{props?.bookDetails?.authors?.join(',  ')}</div>
     </div>
-  )
-}
+  );
+};
 
 export default Book;

@@ -51,12 +51,12 @@ const BookSearch = () => {
           alert("Book shelf update failed. Please try again.");
         }
       });
-  }
+  };
 
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <Link to='/'>
+        <Link to="/">
           <button className="close-search">Close</button>
         </Link>
         <div className="search-books-input-wrapper">
@@ -80,7 +80,7 @@ const BookSearch = () => {
           </div>}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default BookSearch;

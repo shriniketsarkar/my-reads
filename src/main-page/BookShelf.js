@@ -10,7 +10,7 @@ const BookShelf = props => {
         handleBookShelfUpdate={props.handleBookShelfUpdate}
       />
     </div>
-  )
-}
+  );
+};
 
 export default BookShelf;

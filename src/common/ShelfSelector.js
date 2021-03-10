@@ -5,11 +5,11 @@ const ShelfSelector = (props) => {
   const onSelectionChange = e => {
     setShelf(e.target.value);
     props.handleBookShelfUpdate(props.book, e.target.value);
-  }
+  };
 
   useEffect(() => {
     if (!shelf) {
-      setShelf('none');      
+      setShelf('none');
     }
   },[shelf]);
 
@@ -23,7 +23,7 @@ const ShelfSelector = (props) => {
         <option value="none">None</option>
       </select>
     </div>
-  )
-}
+  );
+};
 
 export default ShelfSelector;
