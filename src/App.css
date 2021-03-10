@@ -75,6 +75,14 @@ body, .app {
 
 /* search page */
 
+.search-div-default-text {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+}
+
 .search-books-bar {
   position: fixed;
   width: 100%;

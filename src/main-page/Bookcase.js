@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+
 import BookShelf from './BookShelf';
-import * as BooksAPI from './services/BooksAPI';
+import * as BooksAPI from '../services/BooksAPI';
 
 const Bookcase = () => {
   const [shelves, setShelves] = useState({});
 
+  // Get all the books on the shelves
   useEffect(() => {
     BooksAPI.getAll()
       .then(books => {
@@ -21,7 +23,12 @@ const Bookcase = () => {
   }, []);
 
   const handleBookShelfUpdate = (book, newShelf) => {
-    BooksAPI.update(book, newShelf);
+    BooksAPI.update(book, newShelf)
+      .then((res) => {
+        if (res?.error) {
+          alert("Book shelf update failed. Please try again.");
+        }
+      });
 
     const oldShelf = book.shelf;
     let oldShelfItems = shelves[oldShelf].filter(oldBook => oldBook.id !== book.id);

@@ -15,7 +15,7 @@ const Book = props => {
           handleBookShelfUpdate={props.handleBookShelfUpdate}
         />
       </div>
-      <div className="book-title">{props.bookDetails.title}</div>
+      <div className="book-title">{props?.bookDetails?.title}</div>
       <div className="book-authors">{props?.bookDetails?.authors?.join(',  ')}</div>
     </div>
   )
